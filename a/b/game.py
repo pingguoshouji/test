@@ -9,6 +9,7 @@ a = False
 
 while a != True:
 
+
     b = int(input())
 
     if num < b:
