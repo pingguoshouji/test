@@ -1,10 +1,11 @@
 
-for a in range(0,5):
-    for b in range(0,5):
-        if b <= a:
+for a in range(1,5):
+    for b in range(1,5):
+        if b <= a - 1:
             print('*',end='')
         else:
             print('*')
+            break
 
     
 
