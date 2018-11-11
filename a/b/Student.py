@@ -17,3 +17,7 @@ student1 = Student('YUANZHE',18,2)
 student1.print_a()
 # print(student1.name)
 # print(student1.__dict__)
+print(Student.a)
+print(Student.a == 1)
+
+
