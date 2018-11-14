@@ -26,20 +26,21 @@
 
 #--------------3---------------#
 # https://bbs.csdn.net/topics/392301450
-def f1():
-    print('f1')
 
-def f2(func):
-    print(func)
-    func()    
+# def f1():
+#     print('f1')
 
-print(f2(f1))
+# def f2(func):
+#     print(func)
+#     func()    
+
+# print(f2(f1))
 
 #--------------4----------------#
 # https://blog.csdn.net/obaking/article/details/46318175
-# def f1(a):
-#     a = 2
-#     return a
+def f1():
+    a = 2
+    return a
 
 # def f2(f1):
 #     # print(f1)
@@ -60,4 +61,4 @@ print(f2(f1))
 # f3 = f2(2)
 # print(type(f3))
 
-print(f1)
+print(f1())
