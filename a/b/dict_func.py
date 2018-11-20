@@ -42,3 +42,7 @@ print(max(new_stocks))
 invert_stocks = dict([(v,k)for k,v in stocks.items()])
 print(invert_stocks)
 
+#fromkeys  将字典的缺省值为100
+adict = {}.fromkeys(('aa','bb','cc'),100)
+for k,v in adict.items():
+    print(k,v)

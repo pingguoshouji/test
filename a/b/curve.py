@@ -85,3 +85,18 @@ print(t.__closure__)
 #     print(a)
 
 # f1()
+
+
+#----------------------------------#
+def f1():
+    x = 100
+    def f2():
+        print(x)
+    # f2()
+    # return f2
+
+print(f1())
+print(f1)
+
+# a = f1()
+# print(a())
