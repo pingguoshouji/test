@@ -79,3 +79,26 @@ def fact_iter(num, product):
     return fact_iter(num - 1, num * product)
 
 print(fact(10))
+
+
+#返回多个值与丢弃
+def getRoomData():
+	return 'class room is 203',1000,'2016-10-06'
+
+a = getRoomData()         #将返回值以元组的形式返回回来
+print(a)
+a,b,c = getRoomData()
+_,a,_ = getRoomData()     #将不需要的值赋值给一个几乎用不到的变量名，可以将不用的数值丢弃
+print(a)
+
+#尽量用异常表示特殊情况，不要返回None
+#利用try，except
+def divide(a,b):
+	try:
+		return True,a/b
+	except ZeroDivisionError:
+		return False,None
+
+print (divide(0,10))
+
+
