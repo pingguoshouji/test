@@ -6,7 +6,7 @@
 def Curve_pre():
     a = 25           #环境变量
     def Curve(x):
-        a = 20
+        # a = 20
         b = a*x
         return b
     # print(a)
