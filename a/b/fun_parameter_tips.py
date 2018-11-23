@@ -70,7 +70,7 @@ def fact(n):
 print(fact(10))
 
 #尾递归
-def fact(n):
+def fact1(n):
     return fact_iter(n, 1)
 
 def fact_iter(num, product):
@@ -78,7 +78,7 @@ def fact_iter(num, product):
         return product
     return fact_iter(num - 1, num * product)
 
-print(fact(10))
+print(fact1(10))
 
 
 #返回多个值与丢弃
