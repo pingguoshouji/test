@@ -35,7 +35,7 @@ class Student1(object):
 jack = Student1('jack',18)
 jack.score = 20
 print(jack.score)                                       #20
-print(jack.__score)                                     #AttributeError: 'Student1' object has no attribute '__score'
+# print(jack.__score)                                     #AttributeError: 'Student1' object has no attribute '__score'
 print(jack._Student1__score)                            #18
 print(jack._Student1__name)                             #当name私有化后变为_Student1__name
 
@@ -167,7 +167,7 @@ student5.name = 'Michael'
 print(hasattr(student5,'name'))
 print(student5.name)
 s = Student5()
-print(s.name)                                   #AttributeError: 'Student5' object has no attribute 'name'
+# print(s.name)                                   #AttributeError: 'Student5' object has no attribute 'name'
 print(student5.name)
 
 
@@ -181,4 +181,160 @@ try:
     student6.score = 99
 except AttributeError as e:
     print('AttributeError:', e)
+
+
+# @property     将get/set方法易于调用
+class Student7(object):
+
+    @property                       #将get方法变成属性
+    def get_score(self):
+        return self._score
+
+    @get_score.setter               #将set方法变为属性
+    def set_score(self, value):    
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 ~ 100!')
+        self._score = value
+
+student7 = Student7()
+student7.score = 70
+print(student7.score)
+
+#__str__ / __repr__   将一个类的实例封装起来，易于阅读
+class Student8_1(object):
+    def __init__(self,name):
+        self.name = name
+
+student8_1 = Student8_1('jimmy')
+print(Student8_1('jimmy'))
+
+class Student8_2(object):
+    def __init__(self,name):
+        self.name = name
+
+    def __str__(self):
+        return 'Student8_2 object (name: %s)' % self.name
+
+    __repr__ = __str__
+
+student8_2 = Student8_2('jimmy')
+print(Student8_2('jimmy'))
+
+
+#  __iter__     实现循环
+class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a > 100000: # 退出循环的条件
+            raise StopIteration()
+        return self.a # 返回下一个值
+
+for x in Fib():
+    print(x)
+
+
+# __getitem__ 像list一样取值
+class Fib2():
+    def __getitem__(self,n):
+        a,b = 1,1
+        for a in range(n): 
+            a,b = b,a+b
+        return a
+
+fib2 = Fib2()
+print(fib2[2])
+# print(fib2[list()])               TypeError: 'list' object cannot be interpreted as an integer
+print(type(list(range(100))[5:10]))
+
+a = list(range(100))[5:10]
+print((a[1]))
+
+# print(isinstance(list(range(5))[0:2],slice))
+a = slice(5)
+print(type(a))
+
+class Fib3(object):
+    def __getitem__(self, n):
+        if isinstance(n, int): # n是索引
+            a, b = 1, 1
+            for x in range(n):
+                a, b = b, a + b
+            return a
+
+        if isinstance(n, slice): # n是切片
+            start = n.start
+            stop = n.stop
+            if start is None:
+                start = 0
+            a, b = 1, 1
+            L = []
+            for x in range(stop):
+                if x >= start:
+                    L.append(a)
+                a, b = b, a + b
+            return L
+
+
+fib3 = Fib3()
+# print(type(fib3[0:3]))
+print(fib3[1:10])
+
+#---------------------------------------------#
+class Test(object):
+    def __init__(self):
+        self.tokens = []
+ 
+    def __getitem__(self, i):
+        if isinstance(i, slice):
+            print ('Slice object:', i)
+            return self.tokens[i.start: i.stop]
+        else:
+            print ('Integer:', i)
+            return self.tokens[i]
+ 
+t = Test()
+t.tokens = range(10)
+print(type(t[1: 2]))
+
+
+#__getattr__  没有找到的属性，在这个里面寻找
+class People(object):
+
+    def __init__(self):
+        self.name = 'Michael'
+
+    def __getattr__(self, attr):
+        if attr=='score':
+            return 99
+        if attr=='age':
+            return lambda:25
+        # raise AttributeError('\'People\' object has no attribute \'%s\'' % attr)
+
+people = People()
+print(people.score)
+print(people.age())
+print(people.father)
+
+#__call__   实例本身调用
+#Callable   判断一个对象是否能够被调用
+class Student9():
+    def __init__(self,name):
+        self.name = name
+    
+    # def __call__(self):
+    #     print('my name is %s' % self.name)
+
+student9 = Student9('jimmy')
+# print(student9())
+
+print(callable(Student9))
+print(callable(student9))
 
