@@ -284,7 +284,7 @@ class Fib3(object):
 
 
 fib3 = Fib3()
-# print(type(fib3[0:3]))
+print(type(fib3[1:10]))
 print(fib3[1:10])
 
 #---------------------------------------------#
