@@ -24,3 +24,7 @@ id = 26387939
 rank = json_contect['rating']['average']
 with open('douban_movie_rank.txt','a') as outputfile:
     outputfile.write('{} {}'.format(id,rank))
+
+
+
+
