@@ -53,4 +53,34 @@ print(alist.index('very'))
 aList=['to','do','or','not','to','do']
 print(aList.count('to'))
 
+# 拆分元组
+tup = 1,2,(3,4)
+# a,b,c = tup
+a,b,(c,d) = tup
+print(c)
 
+seq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+for a, b, c in seq:
+    print('a={0}, b={1}, c={2}'.format(a, b, c))
+
+
+seq = [7, 2, 3, 7, 5, 6, 0, 1]
+print(seq[:5])
+print(seq[-6:-2])
+
+# enumerate
+some_list = ['foo', 'bar', 'baz']
+# a = enumerate(some_list)
+# print(a)                                             # <enumerate object at 0x00DC9878>
+
+# print(list(enumerate(some_list,start=1)))
+# for i,v in enumerate(some_list):
+#     print(i,v)
+    # print(dict(i,v))                                   # TypeError: dict expected at most 1 arguments, got 2
+
+mapping = {}
+for i,v in enumerate(some_list):
+    print(mapping[v])
+    mapping[i] = v
+
+print(mapping)
