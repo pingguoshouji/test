@@ -80,7 +80,52 @@ some_list = ['foo', 'bar', 'baz']
 
 mapping = {}
 for i,v in enumerate(some_list):
+    mapping[v] = i
     print(mapping[v])
-    mapping[i] = v
 
 print(mapping)
+# print(mapping[i])
+
+
+#
+words = ['apple', 'bat', 'bar', 'atom', 'book']
+by_letter = {}
+
+for word in words:
+    letter = word[0]
+    if letter not in by_letter:
+        by_letter[letter] = [word]
+    else:
+        by_letter[letter].append(word)
+
+print(by_letter)
+
+
+# defaultdict
+# https://blog.csdn.net/the_little_fairy___/article/details/80551538
+from collections import defaultdict
+a=dict()
+b=defaultdict(int)
+print(b["a"])
+
+# 集合推导式
+result = set()      # 创建空的集合
+
+strings = ['a', 'as', 'bat', 'car', 'dove', 'python']
+for i in strings:
+    result.add(len(i))
+
+print(result)
+
+unique_lengths = {len(x) for x in strings}
+result = set(map(len, strings))
+
+
+students = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
+sorted(students, key=lambda student : student[2])
+print(students)
+
+# 
+strings = ['foo', 'card', 'bar', 'aaaa', 'abab']
+strings.sort(key=lambda x: len(set(list(x))))
+print(strings)
