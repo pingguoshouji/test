@@ -108,6 +108,7 @@ a=dict()
 b=defaultdict(int)
 print(b["a"])
 
+
 # 集合推导式
 result = set()      # 创建空的集合
 
@@ -115,17 +116,25 @@ strings = ['a', 'as', 'bat', 'car', 'dove', 'python']
 for i in strings:
     result.add(len(i))
 
-print(result)
+# print(result)
 
 unique_lengths = {len(x) for x in strings}
 result = set(map(len, strings))
+print(result)
 
+#--------------------------------------------------------------#
+def student(x):
+    return x[2]
 
 students = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
-sorted(students, key=lambda student : student[2])
+print(student(students))
+print(lambda student : student[2])
+# sorted(students, key=lambda student : student[2])
+students = sorted(students, key=student)
 print(students)
 
 # 
-strings = ['foo', 'card', 'bar', 'aaaa', 'abab']
+strings = ['foo', 'card', 'bar', 'aaaa', 'abab','aaaa']
 strings.sort(key=lambda x: len(set(list(x))))
 print(strings)
+
