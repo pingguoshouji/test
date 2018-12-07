@@ -128,7 +128,7 @@ def student(x):
 
 students = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
 print(student(students))
-print(lambda student : student[2])
+print((lambda student : student[2])(students))
 # sorted(students, key=lambda student : student[2])
 students = sorted(students, key=student)
 print(students)
