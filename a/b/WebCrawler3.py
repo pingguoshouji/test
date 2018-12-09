@@ -53,3 +53,14 @@ request = urllib.request.Request("http://www.baidu.com/")
 request.add_header('User-Agent',"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)")
 response = opener.open(request).read()
 print(response)
+
+
+import urllib
+from urllib import request
+
+head = {'User-Agent':"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
+hander = urllib.request.HTTPHandler() 
+opener = urllib.request.build_opener(hander)
+request = urllib.request.Request("http://www.baidu.com/",headers=head)
+response = opener.open(request).read()
+print(response)
