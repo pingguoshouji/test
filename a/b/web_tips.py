@@ -22,7 +22,7 @@ print(json_contect['rating']['average'])
 # 保存到文件
 id = 26387939
 rank = json_contect['rating']['average']
-with open('douban_movie_rank.txt','a') as outputfile:
+with open('douban_movie_rank.txt','a') as outputfile:       # a:附加模式
     outputfile.write('{} {}'.format(id,rank))
 
 
