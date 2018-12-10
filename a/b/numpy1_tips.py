@@ -12,10 +12,24 @@ names = np.array(['Bob', 'Joe', 'Will', 'Bob', 'Will', 'Joe', 'Joe'])
 # print(data[(names == 'Bob') | (names == 'Will'), 2:])
 
 # 花式索引
-arr = np.empty((8, 4))
+arr1 = np.empty((8, 4))
 for i in range(8):
-    arr[i] = i
+    arr1[i] = i
 
+# print(arr1[[4, 3, 0, 6]])
+# print(arr1([-4, -3, -0, -6]))                #负数会从尾部进行索引
+
+# 
+arr2 = np.arange(32).reshape((8,4))             #reshape：改变数组形状  返回视图
+# print(arr2[[1, 5, 7, 2], [0, 2, 1, 3]])
+
+
+# 转制
+arr3 = np.arange(15).reshape(3,5)
+print(arr3.T)
+
+
+<<<<<<< HEAD
 print(arr[[4, 3, 0, 6]])
 
 # 将条件逻辑表述为数组运算
@@ -40,4 +54,6 @@ import numpy as np
 
 arr3 = np.random.randn(100)
 print((arr3>0).sum())
+=======
+>>>>>>> c9af34cc6ba345a4a1a4dc509c2cfd89eb2abd05
 
