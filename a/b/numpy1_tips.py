@@ -29,7 +29,7 @@ arr3 = np.arange(15).reshape(3,5)
 print(arr3.T)
 
 
-print(arr[[4, 3, 0, 6]])
+print(arr1[[4, 3, 0, 6]])
 
 # 将条件逻辑表述为数组运算
 import numpy as np
