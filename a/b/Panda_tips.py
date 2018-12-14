@@ -20,7 +20,7 @@ frame['debt'] = np.arange(6.)
 # frame.loc['three']     #获取行
 vla = pd.Series([-1.2, -1.5, -1.7],index=['two', 'four', 'five'])
 frame['debt'] = vla
-frame['eastern'] = frame2.state == 'Ohio'
+frame['eastern'] = frame.state == 'Ohio'
 
 pop = {'Nevada': {2001: 2.4, 2002: 2.9},
     'Ohio': {2000: 1.5, 2001: 1.7, 2002: 3.6}}
@@ -40,11 +40,13 @@ obj3.reindex(range(6),method = 'ffill')
 
 obj = pd.Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])
 new_obj = obj.drop('c')
-new_obj
+
 
 
 pop2 = {'Nevada': {2001: 2.4, 2002: 2.9},
     'Ohio': {2000: 1.5, 2001: 1.7, 2002: 3.6}}
 obj2 = pd.DataFrame(pop2)
 new_obj2 = obj2.drop('Ohio',axis=1)
-new_obj2
+
+
+
